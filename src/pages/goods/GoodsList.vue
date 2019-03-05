@@ -22,8 +22,18 @@
       <el-table-column type="selection" width="55"></el-table-column>
 
       <!-- 每一列的数据，prop定义数据结构对象要显示的属性 -->
-      <el-table-column label="标题" width="180" prop="title"></el-table-column>
+      <el-table-column label="标题" width="300">
+        <!--标题的自定义模板 -->
+        <template slot-scope="scope">
+          <el-row type="flex" align="middle">
+            <img :src="scope.row.imgurl" class="goods_img">
+            <p>{{scope.row.title}}</p>
+          </el-row>
+        </template>
+      </el-table-column>
+
       <el-table-column label="类型" width="180" prop="categoryname"></el-table-column>
+
       <el-table-column label="价格" width="180">
         <!-- 自定义模板，slot-scope属性可以获取当前每一行数据，数据是一个对象，scoped.row可获取该对象 -->
         <template slot-scope="scope">
@@ -70,23 +80,23 @@ export default {
       // 搜索条件
       searchValue: "",
       // 数据总条数
-      totalCount: 0 ,
+      totalCount: 0,
 
       // 保存要删除的商品
-      idsStr: "",
+      idsStr: ""
     };
   },
 
   // 组件加载完成后触发
   mounted() {
     // 请求页面数据、
-    this.getList()  
+    this.getList();
   },
 
   // 事件处理函数
   methods: {
     // 请求商品数据
-    getList(){
+    getList() {
       // 请求商品类别数据
       this.$axios
         .get(
@@ -118,52 +128,54 @@ export default {
     // 切换页数触发
     handleCurrentChange(num1) {
       // 把pageIndex修改为当前选择的页面
-      this.pageIndex = num1 ;
+      this.pageIndex = num1;
       this.getList();
     },
 
     // 当表格选择时候触发
-    handleSelectionChange(data){
+    handleSelectionChange(data) {
       // data是一个数组，当前选中的商品
       const ids = data.map(v => {
         return v.id;
-      })
+      });
 
       // 拼接选中的商品的id
       const idsStr = ids.join(",");
 
       // 保存在data里面
-      this.idsStr =  idsStr;
+      this.idsStr = idsStr;
     },
 
     // 点击删除按钮事件
     handleDelete(ids) {
       console.log("点击了删除按钮");
-      this.$axios.get(`http://localhost:8899/admin/goods/del/${ids}`).then(res =>{
-        const {message,status} = res.data;
+      this.$axios
+        .get(`http://localhost:8899/admin/goods/del/${ids}`)
+        .then(res => {
+          const { message, status } = res.data;
 
-        // 删除成功
-        if(status === 0){
-          this.$message({
-            message:message,
-            type: "success"
-          });
+          // 删除成功
+          if (status === 0) {
+            this.$message({
+              message: message,
+              type: "success"
+            });
 
-          // 重新请求数据
-          this.getList();
-        }
-      })
+            // 重新请求数据
+            this.getList();
+          }
+        });
     },
 
     // 点击新增按钮跳转页面
-    handleToGoodsAdd(){
+    handleToGoodsAdd() {
       // 修改路径
       this.$router.push("/admin/goods-add");
     },
 
     // 点击搜索框按钮时候触发
-    handleSearch(){
-      console.log("点击了搜索按钮")
+    handleSearch() {
+      console.log("点击了搜索按钮");
       // 把当前页面重置为1
       this.pageIndex = 1;
       // 重新请求数据
@@ -181,4 +193,12 @@ export default {
 </script>
 
 <style scoped>
+  .goods_img {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin-right: 10px;
+    /* 不被挤压 */
+    flex-shrink: 0;
+  }
 </style>
