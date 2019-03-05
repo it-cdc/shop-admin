@@ -16,4 +16,13 @@
     margin: 0;
     padding: 0;
   }
+  
+  /* margin-top */
+  .mt20{
+    margin-top: 20px;
+  }
+  /* margin-bottom */
+  .mb20{
+    margin-bottom: 20px;
+  }
 </style>

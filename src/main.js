@@ -39,7 +39,7 @@ const routes = [{
   {
     path: "/admin",
     component: Admin,
-    meta: "首页",
+    meta: "管理后台",
     redirect:"/admin/goods-list",
     children: [{
         path: "goods-list",

@@ -16,6 +16,7 @@
                 </el-header>
                 <!-- 主体 -->
                 <el-main>
+                     <breadcrumb></breadcrumb>
                     <router-view></router-view>
                 </el-main>
             </el-container>
@@ -29,7 +30,7 @@ import Aside from "../components/Aside";
 // 引入Header组件
 import Header from "../components/Header";
 // 引入Breadcrumb组件
-// import Breadcrumb from "../components/Breadcrumb";
+import Breadcrumb from "../components/Breadcrumb";
 
 export default {
     name:"admin-index",
@@ -43,6 +44,7 @@ export default {
     components:{
         "app-aside":Aside,
         "app-header": Header,
+        "breadcrumb": Breadcrumb,
     },
     methods: {
         // 修改菜单栏的收起展开
@@ -72,12 +74,12 @@ export default {
         display: flex;
         flex-direction: column;
     }
-  
+//   去除elementul默认样式
     .el-main {
         background-color: #E9EEF3;
-        color: #333;
-        text-align: center;
-        line-height: 160px;
+        // color: #333;
+        // text-align: center;
+        // line-height: 160px;
     }
   
     .el-container {
