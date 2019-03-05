@@ -2,7 +2,7 @@
     <el-row type="flex" justify="space-between" align="middle" class="header">
         <!-- 头部控制菜单栏的收起展开的图标 -->
         <i class="el-icon-back" @click="handleToggle"></i>
-        <div>Hello</div>
+        <i class="el-icon-loading"></i>
     </el-row>
 </template>
 
@@ -25,5 +25,11 @@ export default {
     .el-icon-back{
         /* 鼠标手势 */
         cursor: pointer;
+    }
+
+    .el-icon-loading{
+        font-size: 30px;
+        font-weight: 600;
+        color: pink;
     }
 </style>
