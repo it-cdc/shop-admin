@@ -18,6 +18,16 @@ import GoodsList from "./pages/goods/GoodsList";
 import GoodsAdd from "./pages/goods/GoodsAdd"
 import CategoryList from "./pages/category/CategoryList";
 
+// 引入富文本编辑器插件
+import VueQuillEditor from 'vue-quill-editor'
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+
+Vue.use(VueQuillEditor, /* { default global options } */)
+
 //注册路由插件
 Vue.use(VueRouter);
 
@@ -67,6 +77,8 @@ const router = new VueRouter({
   routes
 });
 
+// 给axios每次请求自动加上域名
+axios.defaults.baseURL = 'http://localhost:8899';
 // 2.把axios绑定到vue实例的属性$axios
 Vue.prototype.$axios = axios;
 

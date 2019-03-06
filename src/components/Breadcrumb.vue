@@ -23,7 +23,7 @@ export default {
                 }
             });
 
-            console.log(nweArr);
+            // console.log(nweArr);
              return nweArr;
         }
     }

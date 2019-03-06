@@ -5,7 +5,7 @@
             <el-aside width="auto">
                 <!-- 预留存放logo的位置 -->
                 <div class="logo">
-                    <img src="https://www.vue-js.com/public/images/vue.png" alt="">
+                    
                 </div>
                 <!-- 菜单栏 -->
                 <app-aside :isCollapse="isCollapse"></app-aside>
@@ -103,10 +103,5 @@ export default {
     .logo{
         height: 60px;
         background-color: #454f5a;
-        padding-left: 50px;
-        padding-top: 10px;
-        img{
-            width: 40px;
-        }
     }
 </style>

@@ -30,6 +30,6 @@ export default {
     .el-icon-loading{
         font-size: 30px;
         font-weight: 600;
-        color: pink;
+        color: blueviolet;
     }
 </style>
