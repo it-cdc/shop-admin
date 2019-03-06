@@ -32,7 +32,9 @@
             this.$axios({
                 url:"/admin/account/login",
                 method:"POST",
-                data:this.formData
+                data:this.formData,
+                // 处理跨域
+                withCredentials: true,
             }).then(res =>{
                 const{status,message} = res.data;
 
@@ -57,7 +59,7 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     .login-form{
         width: 400px;
         margin: -150px 0 0 -200px;

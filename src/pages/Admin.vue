@@ -44,7 +44,7 @@ export default {
     },
     // 注册组件，注意组件名称不要和html的标签名重复
     components:{
-        "app-aside":Aside,
+        "app-aside": Aside,
         "app-header": Header,
         "breadcrumb": Breadcrumb,
     },

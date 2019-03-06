@@ -3,6 +3,7 @@ import App from './App.vue'
 
 // 1.引入axios
 import axios from 'axios';
+
 // 1.引入element-ui
 import ElementUI from "element-ui";
 // 2.引入element-ui样式
@@ -18,21 +19,20 @@ import GoodsList from "./pages/goods/GoodsList";
 import GoodsAdd from "./pages/goods/GoodsAdd"
 import CategoryList from "./pages/category/CategoryList";
 
-// 引入富文本编辑器插件
-import VueQuillEditor from 'vue-quill-editor'
-// require styles
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
-
-
-Vue.use(VueQuillEditor, /* { default global options } */)
+// // 引入富文本全局编辑器插件
+// import VueQuillEditor from 'vue-quill-editor'
+// // require styles
+// import 'quill/dist/quill.core.css'
+// import 'quill/dist/quill.snow.css'
+// import 'quill/dist/quill.bubble.css'
+// 注册富文本插件
+// Vue.use(VueQuillEditor, /* { default global options } */)
 
 //注册路由插件
 Vue.use(VueRouter);
 
 
-// 3.全局注册组件
+// 3.全局注册组件 element-ui
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false

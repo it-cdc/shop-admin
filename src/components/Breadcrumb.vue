@@ -1,7 +1,10 @@
 <template>
   <div class="breadcrumb mt20 mb20">
     <el-breadcrumb separator=">">
-      <el-breadcrumb-item :to="{ path: item.src }" v-for="(item,index) in routerInfo" :key="index" >
+      <el-breadcrumb-item 
+      :to="{ path: item.src }" 
+      v-for="(item,index) in routerInfo" 
+      :key="index" >
         {{item.title}}
       </el-breadcrumb-item>
     </el-breadcrumb>
