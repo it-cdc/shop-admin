@@ -10,7 +10,6 @@
         :key="index" 
         :label="item.title"
         >
-
           <el-option
             v-for="(subItem,subIndex) in categorys"
             v-if="subItem.parent_id == item.category_id"
@@ -182,6 +181,14 @@ export default {
       this.form = message;
       // 预览图片
       this.imageUrl = message.imgList[0].url;
+
+      this.form.filelList = message.fileList.map(v => {
+        return {
+          ...v,
+          // 覆盖 v 对象里面的url
+          url: `http://localhost:8899` + v.shorturl
+        }
+      })
     })
 
 
@@ -191,7 +198,7 @@ export default {
       url:`/admin/category/getlist/goods`,
     }).then(res =>{
       // 查看请求的分类数据
-      console.log(res);
+      // console.log(res);
       const {message} = res.data;
       this.categorys = message;
     })
@@ -241,9 +248,18 @@ export default {
       }
       return isLt2M;
     },
-    // 移除选中的图片
+    // 移除选中的图片,fileList是删除后的数据
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      if(fileList.length === 0 ){
+        this.$message({
+          type:"warning",
+          message:"再删就米有照片啦"
+        });
+        return;
+      }
+
+      //在编辑时候吐过只有一张图片后台没法删除，至少保留一张图片
+      this.form.fileList = fileList;
     },
     // 点击预览图片
     handlePictureCardPreview(file) {

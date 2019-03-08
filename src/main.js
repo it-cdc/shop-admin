@@ -19,6 +19,7 @@ import GoodsList from "./pages/goods/GoodsList";
 import GoodsAdd from "./pages/goods/GoodsAdd";
 import GoodsEdit from "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
+import CategoryAdd from "./pages/category/CategoryAdd";
 
 // // 引入富文本全局编辑器插件
 // import VueQuillEditor from 'vue-quill-editor'
@@ -73,6 +74,11 @@ const routes = [{
         path: "category-list",
         component: CategoryList,
         meta: "栏目列表"
+      },
+      {
+        path: "category-add",
+        component: CategoryAdd,
+        meta: "新增栏目"
       }
     ]
   }
