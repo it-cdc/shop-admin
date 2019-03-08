@@ -77,6 +77,10 @@ export default {
               id: item.category_id,
               label: item.title,
             });
+            //递归中也需要排序
+            v.children = v.children.sort((a,b) => {
+              return a.sort_id - b.sort_id
+            })
             return;
           }
 

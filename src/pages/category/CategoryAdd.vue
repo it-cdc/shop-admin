@@ -56,7 +56,17 @@ export default {
         // 处理跨域
         withCredentials: true,
       }).then(res => {
-        console.log(res);
+        const {message,status} = res.data;
+        if(status === 0){
+            this.$message({
+                type: "warning",
+                message:message,
+
+            });
+            setTimeout(()=>{
+                this.$router.push("/admin/category-list");
+            },1000)
+        }
       });
     }
   },

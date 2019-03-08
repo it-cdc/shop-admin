@@ -182,7 +182,7 @@ export default {
       // 预览图片
       this.imageUrl = message.imgList[0].url;
 
-      this.form.filelList = message.fileList.map(v => {
+      this.form.fileList = message.fileList.map(v => {
         return {
           ...v,
           // 覆盖 v 对象里面的url
