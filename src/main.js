@@ -16,7 +16,8 @@ import VueRouter from "vue-router";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import GoodsList from "./pages/goods/GoodsList";
-import GoodsAdd from "./pages/goods/GoodsAdd"
+import GoodsAdd from "./pages/goods/GoodsAdd";
+import GoodsEdit from "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
 
 // // 引入富文本全局编辑器插件
@@ -62,6 +63,11 @@ const routes = [{
         path: "goods-add",
         component: GoodsAdd,
         meta: "添加商品"
+      },
+      {
+        path:"goods-edit/:id",
+        component: GoodsEdit,
+        meta: "编辑商品"
       },
       {
         path: "category-list",

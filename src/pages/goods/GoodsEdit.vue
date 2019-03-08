@@ -15,7 +15,7 @@
             v-for="(subItem,subIndex) in categorys"
             v-if="subItem.parent_id == item.category_id"
             :key="subIndex"
-            :label="subItem.title"
+            :label="`${subItem.category_id} ${subItem.title}`"
             :value="subItem.category_id"
           >
           </el-option>
@@ -55,6 +55,7 @@
         :show-file-list="false"
         :on-success="handleAvatarSuccess"
         :before-upload="beforeAvatarUpload"
+        :file-list="form.imgList"
       >
         <img v-if="imageUrl" :src="imageUrl" class="avatar">
         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -85,6 +86,7 @@
         :on-preview="handlePictureCardPreview"
         :on-remove="handleRemove"
         :on-success="handleFileList"
+        :file-list="form.fileList"
       >
         <i class="el-icon-plus"></i>
       </el-upload>
@@ -155,6 +157,9 @@ export default {
       // 类别数据
       categorys: [],
 
+      // 商品id
+      id : "",
+
     };
   },
 
@@ -164,6 +169,22 @@ export default {
   },
 
   mounted(){
+    // 获取动态路由id
+    const {id} = this.$route.params;
+    // 保存到data
+    this.id = id;
+    // 请求商品数据
+    this.$axios({
+      url: `/admin/goods/getgoodsmodel/${id}`
+    }).then(res  => {
+      const {message} = res.data;
+      // 初始化表单的值
+      this.form = message;
+      // 预览图片
+      this.imageUrl = message.imgList[0].url;
+    })
+
+
     // 请求分类数据
     this.$axios({
       method:"GET",
@@ -181,7 +202,7 @@ export default {
     onSubmit() {
       this.$axios({
         method: "POST",
-        url:`/admin/goods/add/goods`,
+        url:`/admin/goods/edit/${this.id}`,
         data: this.form,
         // 处理跨域
         withCredentials: true,
@@ -257,7 +278,7 @@ export default {
   height: 178px;
   display: block;
 }
-
+/*   清除富文本编辑的line-height */
 .quillLineHeight .el-form-item__content {
   line-height: unset;
 }

@@ -113,10 +113,12 @@ export default {
           this.totalCount = data.totalcount;
         });
     },
-
+  
     // 点击编辑按钮事件
     handleEdit(index, row) {
       console.log(index, row);
+      // console.log(123)
+      this.$router.push(`/admin/goods-edit/${row.id}`);
     },
 
     // 切换显示条数触发
