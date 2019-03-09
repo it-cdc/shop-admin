@@ -22,6 +22,8 @@ import CategoryList from "./pages/category/CategoryList";
 import CategoryAdd from "./pages/category/CategoryAdd";
 import CategoryEdit from "./pages/category/CategoryEdit";
 
+import MembersList from "./pages/members/MembersList";
+
 // 引入Vuex仓库
 import store from "./store";
 
@@ -88,6 +90,11 @@ const routes = [{
         path: "category-edit/:id",
         component: CategoryEdit,
         meta: "编辑栏目"
+      },
+      {
+        path: "members-list",
+        component: MembersList,
+        meta: "会员列表"
       }
     ]
   }

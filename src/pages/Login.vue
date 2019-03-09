@@ -49,6 +49,11 @@
             // });
             // user/是命名空间
             this.$store.dispatch("user/login",this.formData);
+            
+            this.$message({
+                type:"success",
+                message:"登录成功"
+            })
         },
         
         resetForm(formName) {

@@ -57,7 +57,7 @@ export default {
         {
           icon: "el-icon-service",
           title: "会员管理",
-          group: [{ src: "#", title: "会员列表" }]
+          group: [{ src: "/admin/members-list", title: "会员列表" }]
         },
         {
           icon: "el-icon-tickets",
@@ -66,6 +66,10 @@ export default {
         }
       ]
     };
+  },
+
+  methods:{
+    
   },
   
   props:["isCollapse"]

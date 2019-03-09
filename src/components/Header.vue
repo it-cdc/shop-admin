@@ -36,9 +36,9 @@ export default {
             
             // 提示用户
             this.$message({
-                    type:"success",
-                    message: "退出成功，请重新登录"
-                })
+                type:"success",
+                message: "退出成功，请重新登录"
+            })
             // 定时器 一秒钟后跳转页面
             setTimeout(() => {
                 this.$router.push("/login");
