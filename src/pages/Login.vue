@@ -1,7 +1,7 @@
 <template>
     <div class="login-form">
         <div class="login-form-header">登录</div>
-        <el-form :model="formData" status-icon  label-width="40px">
+        <el-form :model="formData" status-icon label-width="40px">
             <!-- el-form-item是e-form的子组件，不能放到el-form的外部 -->
             <el-form-item label="账号">
                 <el-input v-model="formData.uname" autocomplete="off" placeholder="请输入账号"></el-input>
@@ -64,14 +64,17 @@
 
 <style lang="less" scoped>
     .login-form{
-        width: 400px;
+        // text-align: center;
+        width: 500px;
         margin: -150px 0 0 -200px;
         position: absolute;
         left: 50%;
         top: 50%;
         // 标题
         .login-form-header{
-            text-align: center;
+            
+            // text-align: center;
+            padding-left: 155px;
             margin-bottom: 20px;
             color: #66b1ff;
         }
