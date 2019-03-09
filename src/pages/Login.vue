@@ -2,6 +2,7 @@
     <div class="login-form">
         <div class="login-form-header">登录</div>
         <el-form :model="formData" status-icon  label-width="40px">
+            <!-- el-form-item是e-form的子组件，不能放到el-form的外部 -->
             <el-form-item label="账号">
                 <el-input v-model="formData.uname" autocomplete="off" placeholder="请输入账号"></el-input>
             </el-form-item>
@@ -29,23 +30,25 @@
     methods: {
         submitForm(formName) {
             // 提交到接口
-            this.$axios({
-                url:"/admin/account/login",
-                method:"POST",
-                data:this.formData,
-                // 处理跨域
-                withCredentials: true,
-            }).then(res =>{
-                const{status,message} = res.data;
+            // this.$axios({
+            //     url:"/admin/account/login",
+            //     method:"POST",
+            //     data:this.formData,
+            //     // 处理跨域
+            //     withCredentials: true,
+            // }).then(res =>{
+            //     const{status,message} = res.data;
 
-                // 如果登陆错误
-                if(status == 1){
-                    this.$message.error(message);
-                }else{
-                    // 登陆成功就返回上一页
-                    this.$router.back();
-                }
-            });
+            //     // 如果登陆错误
+            //     if(status == 1){
+            //         this.$message.error(message);
+            //     }else{
+            //         // 登陆成功就返回上一页
+            //         this.$router.back();
+            //     }
+            // });
+            // user/是命名空间
+            this.$store.dispatch("user/login",this.formData);
         },
         
         resetForm(formName) {

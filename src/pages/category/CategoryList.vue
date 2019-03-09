@@ -38,9 +38,7 @@
 export default {
   data() {
     return {
-      data: [
-
-      ]
+      data: []
     }
   },
    
@@ -111,7 +109,7 @@ export default {
 
   methods: {
     edit(data) {
-      console.log(data);
+      this.$router.push(`/admin/category-edit/${data.category_id}`);
     },
 
     // 修改排序回车时候触发的事件

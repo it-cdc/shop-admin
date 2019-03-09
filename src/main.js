@@ -20,6 +20,10 @@ import GoodsAdd from "./pages/goods/GoodsAdd";
 import GoodsEdit from "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
 import CategoryAdd from "./pages/category/CategoryAdd";
+import CategoryEdit from "./pages/category/CategoryEdit";
+
+// 引入Vuex仓库
+import store from "./store";
 
 // // 引入富文本全局编辑器插件
 // import VueQuillEditor from 'vue-quill-editor'
@@ -79,6 +83,11 @@ const routes = [{
         path: "category-add",
         component: CategoryAdd,
         meta: "新增栏目"
+      },
+      {
+        path: "category-edit/:id",
+        component: CategoryEdit,
+        meta: "编辑栏目"
       }
     ]
   }
@@ -97,5 +106,7 @@ Vue.prototype.$axios = axios;
 new Vue({
   //挂载路由到跟实例
   router,
+  // 挂载store
+  store,
   render: h => h(App),
 }).$mount('#app')
