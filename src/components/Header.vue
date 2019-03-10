@@ -2,7 +2,7 @@
     <el-row type="flex" justify="space-between" align="middle" class="header">
         <!-- 头部控制菜单栏的收起展开的图标 -->
         <i class="el-icon-back" @click="handleToggle"></i>
-        <el-button type="primary" size="mini" icon="el-icon-arrow-left" @click="handleReturn"></el-button>
+        <el-button type="info" size="mini" icon="el-icon-arrow-left" @click="handleReturn"></el-button>
         <div class="userName">
            <i data-v-61dd7a3d="" class="el-icon-picture"></i>
             {{username}} {{identity}}

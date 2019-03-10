@@ -24,7 +24,9 @@ import CategoryEdit from "./pages/category/CategoryEdit";
 // 会员列表
 import MembersList from "./pages/members/MembersList";
 // 订单列表
-import OrderList from "./pages/order-list/OrderList"
+import OrderList from "./pages/order-list/OrderList";
+import OrderDetail from "./pages/order-list/OrderDetail";
+import OrderEdit from "./pages/order-list/OrderEdit";
 // 引入Vuex仓库
 import store from "./store";
 
@@ -101,6 +103,18 @@ const routes = [{
         path: "order-list",
         component: OrderList,
         meta: "订单列表"
+      },
+      {
+        path: "order-detail/:id",
+        component: OrderDetail,
+        name: "order-detail",
+        meta: "订单详情"
+      },
+      {
+        path: "order-edit/:id",
+        component: OrderEdit,
+        name: "order-edit",
+        meta: "编辑订单"
       }
     ]
   }
