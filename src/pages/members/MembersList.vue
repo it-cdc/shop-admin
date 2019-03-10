@@ -6,7 +6,7 @@
       <!-- 搜索框 -->
       <div>
         <el-input placeholder="会员名称" v-model="searchValue" class="input-with-select">
-          <el-button slot="append" @click="handleSearch" icon="el-icon-search"></el-button>
+          <el-button style="width:60%" slot="append" @click="handleSearch" icon="el-icon-search"></el-button>
         </el-input>
       </div>
     </el-row>
@@ -18,36 +18,36 @@
       <el-table-column type="selection" width="55"></el-table-column>
 
       <!-- 每一列的数据，prop定义数据结构对象要显示的属性 -->
-      <el-table-column label="姓名" width="180">
+      <el-table-column label="姓名">
         <!--标题的自定义模板 -->
         <template slot-scope="scope">
           <el-row type="flex" align="middle">
-            <p>{{scope.row.user_name}}</p>
+            <span>{{scope.row.user_name}}</span>
           </el-row>
         </template>
       </el-table-column>
 
-      <el-table-column label="手机号码" width="180" prop="categoryname">
+      <el-table-column label="手机号码">
           <template slot-scope="scope">
             <span>{{scope.row.mobile}}</span>
           </template>
       </el-table-column>
 
-      <el-table-column label="邮箱" width="180" prop="categoryname">
+      <el-table-column label="邮箱">
            <template slot-scope="scope">
             <span>{{scope.row.email}}</span>
           </template>
       </el-table-column>
 
-      <el-table-column label="时间" width="180">
+      <el-table-column label="时间">
         <!-- 自定义模板，slot-scope属性可以获取当前每一行数据，数据是一个对象，scoped.row可获取该对象 -->
         <template slot-scope="scope">
           <span>{{scope.row.reg_time}}</span>
         </template>
       </el-table-column>
 
-      <el-table-column label="操作">
-        <template slot-scope="scope">
+      <el-table-column label="操作" fixed="right" width="100">
+        <template slot-scope="scope" >
           <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">查看</el-button>
         </template>
       </el-table-column>
@@ -58,7 +58,7 @@
     <!-- current-change： 切换页面时候触发 -->
     <!-- current-page 代表当前页 -->
     <!-- total: 数据的总条数 -->
-    <div class="block">
+    <div class="block mt20">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -158,5 +158,5 @@ export default {
 </script>
 
 <style scoped>
-  
+
 </style>

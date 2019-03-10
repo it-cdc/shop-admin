@@ -21,9 +21,10 @@ import GoodsEdit from "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
 import CategoryAdd from "./pages/category/CategoryAdd";
 import CategoryEdit from "./pages/category/CategoryEdit";
-
+// 会员列表
 import MembersList from "./pages/members/MembersList";
-
+// 订单列表
+import OrderList from "./pages/order-list/OrderList"
 // 引入Vuex仓库
 import store from "./store";
 
@@ -95,6 +96,11 @@ const routes = [{
         path: "members-list",
         component: MembersList,
         meta: "会员列表"
+      },
+      {
+        path: "order-list",
+        component: OrderList,
+        meta: "订单列表"
       }
     ]
   }

@@ -62,7 +62,7 @@ export default {
         {
           icon: "el-icon-tickets",
           title: "订单管理",
-          group: [{ src: "#", title: "订单列表" }]
+          group: [{ src: "/admin/order-list", title: "订单列表" }]
         }
       ]
     };
